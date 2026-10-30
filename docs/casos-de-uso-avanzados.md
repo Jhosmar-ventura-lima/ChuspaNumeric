@@ -2,7 +2,7 @@
 
 Este documento complementa `docs/casos-de-uso.md` con cuatro escenarios end-to-end que combinan varios métodos y funcionalidades de ChuspaNumeric. Cada escenario incluye el código real, los resultados obtenidos al ejecutarlo, y una interpretación del resultado.
 
-> **Nota sobre disponibilidad de funcionalidades**: algunos escenarios descritos en el issue de origen de este documento mencionaban características como un CLI con subcomando `ChuspaNumeric bench` o `--grafico`, un *playground* integrado, métodos RK45 y gradiente conjugado. Ninguna de esas características existe en el repositorio al momento de escribir este documento. Los cuatro escenarios presentados aquí se construyeron exclusivamente con los métodos y utilidades que sí están implementados, verificando cada uno de forma práctica antes de documentarlo.
+> **Nota sobre disponibilidad de funcionalidades**: algunos escenarios descritos en el issue de origen de este documento mencionaban características como un CLI con subcomando `chuspanumeric bench` o `--grafico`, un *playground* integrado, métodos RK45 y gradiente conjugado. Ninguna de esas características existe en el repositorio al momento de escribir este documento. Los cuatro escenarios presentados aquí se construyeron exclusivamente con los métodos y utilidades que sí están implementados, verificando cada uno de forma práctica antes de documentarlo.
 
 ---
 
@@ -21,9 +21,9 @@ Resolver la EDO `y' = -5y`, `y(0) = 1`, con solución exacta `y(x) = e^(-5x)`, u
 ### Código
 
 ```js
-import { euler } from 'ChuspaNumeric/src/edo/euler.js';
-import { eulerMejorado } from 'ChuspaNumeric/src/edo/euler-mejorado.js';
-import { rungeKutta4 } from 'ChuspaNumeric/src/edo/runge_kutta_4.js';
+import { euler } from 'chuspanumeric/src/edo/euler.js';
+import { eulerMejorado } from 'chuspanumeric/src/edo/euler-mejorado.js';
+import { rungeKutta4 } from 'chuspanumeric/src/edo/runge_kutta_4.js';
 
 const f = (x, y) => -5 * y;
 const params = { f, x0: 0, y0: 1, h: 0.1, xFinal: 1 };
@@ -90,8 +90,8 @@ H = | 1      1/2    1/3  |        b = H·[1,1,1] = | 11/6  |
 ### Código
 
 ```js
-import { descomposicionCholesky, resolverCholesky } from 'ChuspaNumeric/src/lineales/cholesky.js';
-import { normaFrobenius } from 'ChuspaNumeric/src/matricial/norma_matriz.js';
+import { descomposicionCholesky, resolverCholesky } from 'chuspanumeric/src/lineales/cholesky.js';
+import { normaFrobenius } from 'chuspanumeric/src/matricial/norma_matriz.js';
 
 const H = [
   [1,    1/2,  1/3],
@@ -165,8 +165,8 @@ Los datos corresponden al modelo físico `s(t) = ½·g·t²` con `g ≈ 9.8 m/s�
 ### Código
 
 ```js
-import { regresionPolinomial } from 'ChuspaNumeric/src/analisis/ajuste_minimos_cuadrados.js';
-import { exportarJSON } from 'ChuspaNumeric/src/io/exportar_json.js';
+import { regresionPolinomial } from 'chuspanumeric/src/analisis/ajuste_minimos_cuadrados.js';
+import { exportarJSON } from 'chuspanumeric/src/io/exportar_json.js';
 
 const tiempo   = [0, 1, 2, 3, 4, 5];
 const posicion = [0.0, 4.9, 19.6, 44.1, 78.4, 122.5];
@@ -233,7 +233,7 @@ Encontrar la raíz real de `f(x) = x³ - 2x - 5`, a partir del punto inicial `x�
 ### Código
 
 ```js
-import { newtonRaphson } from 'ChuspaNumeric/src/no-lineales/newton-raphson.js';
+import { newtonRaphson } from 'chuspanumeric/src/no-lineales/newton-raphson.js';
 
 const resultado = newtonRaphson({
   f:          x => x**3 - 2*x - 5,
