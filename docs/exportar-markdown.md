@@ -29,8 +29,8 @@ en un reporte legible que puedes pegar directamente en:
 ## Uso básico (API propuesta)
 
 ```js
-import { biseccion } from 'ChuspaNumeric/src/no-lineales/biseccion.js';
-import { exportarMarkdown } from 'ChuspaNumeric/src/io/exportar_markdown.js';
+import { biseccion } from 'chuspanumeric/src/no-lineales/biseccion.js';
+import { exportarMarkdown } from 'chuspanumeric/src/io/exportar_markdown.js';
 
 // Resolver el problema
 const resultado = biseccion({
@@ -110,8 +110,8 @@ debe generar para el problema anterior:
 ### Entrega académica
 
 ```js
-import { gaussSeidel } from 'ChuspaNumeric/src/lineales/gauss-seidel.js';
-import { exportarMarkdown } from 'ChuspaNumeric/src/io/exportar_markdown.js';
+import { gaussSeidel } from 'chuspanumeric/src/lineales/gauss-seidel.js';
+import { exportarMarkdown } from 'chuspanumeric/src/io/exportar_markdown.js';
 
 const resultado = gaussSeidel({
     A: [[4, -1, 0], [-1, 4, -1], [0, -1, 4]],
